@@ -1,0 +1,896 @@
+/* Общий стиль */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000000, #424242);
+    color: #000000;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #adadad;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+h1:hover {
+    color: #ffffff;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    left: 450px;
+    bottom: -5px;
+    width: 50%;
+    height: 4px;
+    background-color: #4a4b4b;
+    transition: background-color 0.3s ease-in-out;
+}
+
+h1:hover::after {
+    background-color: #97cc5a ;
+    transition: background-color 0.3s ease-in-out;
+    
+}
+p { 
+    font-size: 1.2em; 
+    color: #adadad;
+}
+
+
+
+
+
+/* Стили для секции формы */
+#formSection {
+    
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    background: linear-gradient(to bottom, #303030, #181818);
+    border-radius: 8px;
+    
+}
+
+/* Заголовок секции */
+#formSection h2 {
+    text-align: center;
+    color:#adadad;
+}
+
+/* Стили для формы */
+#predictionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стили для кнопки */
+#formSection button {
+    padding: 10px;
+    background: #444444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 14px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+}
+
+#formSection button:hover {
+    background: #97cc5a;
+    font-size: 16px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+}
+
+
+
+
+/* Стили для выпадающих списков */
+#formSection select {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #ffffff;
+    transition: background 0.3s ease;
+    font-size: 14px; /* Увеличить размер текста */
+}
+#formSection select:hover {
+    background: #adadad;
+}
+/* Стили для выпадающего списка (появляющиеся элементы) */
+#formSection select option {
+    background: #fffefe; /* Фон выпадающего списка */
+    color: #000000; /* Цвет текста */
+    font-size: 16px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    padding: 10px;
+}
+
+/* Добавление эффекта при наведении на элемент выпадающего списка */
+#formSection select option:hover {
+    background:  #ffffff; /* Фон при наведении */
+    color: #000000; /* Цвет текста при наведении */
+}
+
+
+
+/* Стили для инпутов */
+#formSection input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    color: #000000;
+    font-size: 14px; /* Размер текста */
+    
+}
+
+/* Метки */
+#formSection label {
+    font-weight: bold;
+    color: #adadad;
+}
+
+
+/* Секция для результата */
+#resultSection {
+    margin-top: 50px; /* Отступ сверху */
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 20px;
+    text-align: center;
+    background-color: #adadad; /* Нежный голубой фон */
+    border: 5px solid #000000; /* Голубая рамка */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Текст заголовка результата */
+#result {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Дополнительные отступы снизу */
+#resultSection {
+    margin-bottom: 200px; /* Отступ снизу */
+}
+
+
+
+
+
+
+
+
+/* Фон стадиона */
+#stadium {
+    position: static;
+    width: 100%;
+    height: 90vh;
+    background: url('stadium.webp') center ;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Мяч */
+#ball {
+    position: absolute;
+    bottom: 10%; /* Начальная позиция внизу */
+    left: 0%;
+    width: 50px;
+    height: 50px;
+    background: url('ball1.png') no-repeat center ;
+    background-size: cover;
+    transform-origin: center;
+    overflow: hidden;
+    animation: ballFly 3s ease-in-out forwards; /* Анимация полета мяча с вращением */
+    z-index: 10;
+}
+
+/* Анимация полета мяча с вращением */
+@keyframes ballFly {
+    0% {
+        transform: translate(-100px, -200px) scale(10) rotate(-300deg); /* Начальная позиция мяча, без вращения */
+    }
+    100% {
+        transform: translate(900px, -150px) scale(10) rotate(360deg); /* Мяч в центре, с максимальным размером, завершает вращение */
+    }
+}
+
+#footersection {
+    position: fixed; /* Фиксированное положение */
+    bottom: 0; /* Расположить у нижнего края экрана */
+    left: 0; /* Расположить по левому краю */
+    width: 100%; /* Растянуть по всей ширине экрана */
+    text-align: center;
+    padding: 20px;
+    background: #333; /* Темный фон */
+    color: white; /* Белый текст */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень сверху */
+    z-index: 1000; /* Поверх других элементов */
+}
+
+
+
+
+#stars, #stars2, #stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+}
+
+#stars {
+    box-shadow: 
+        1200px 1200px #FFF, 1450px 1700px #FFF, 400px 500px #FFF, 1700px 2000px #FFF, 
+        900px 1200px #FFF, 1500px 900px #FFF, 1000px 1800px #FFF, 700px 100px #FFF,
+        1600px 1100px #FFF, 800px 400px #FFF, 200px 300px #FFF, 600px 500px #FFF,
+        100px 600px #FFF, 1200px 800px #FFF, 1400px 1400px #FFF, 900px 900px #FFF,
+        400px 1300px #FFF, 700px 1700px #FFF, 200px 200px #FFF, 1800px 1400px #FFF;
+    animation: animStar 5s linear infinite;
+}
+#stars:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: inherit;
+}
+
+#stars2 {
+    box-shadow: 
+    1200px 1200px #FFF, 1450px 1700px #FFF, 400px 500px #FFF, 1700px 2000px #FFF, 
+    900px 1200px #FFF, 1500px 900px #FFF, 1000px 1800px #FFF, 700px 100px #FFF,
+    1600px 1100px #FFF, 800px 400px #FFF, 200px 300px #FFF, 600px 500px #FFF,
+    100px 600px #FFF, 1200px 800px #FFF, 1400px 1400px #FFF, 900px 900px #FFF,
+    400px 1300px #FFF, 700px 1700px #FFF, 200px 200px #FFF, 1800px 1400px #FFF;
+    animation: animStar 10s linear infinite;
+}
+#stars2:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: inherit;
+}
+
+#stars3 {
+    box-shadow: 
+    1200px 1200px #FFF, 1450px 1700px #FFF, 400px 500px #FFF, 1700px 2000px #FFF, 
+    900px 1200px #FFF, 1500px 900px #FFF, 1000px 1800px #FFF, 700px 100px #FFF,
+    1600px 1100px #FFF, 800px 400px #FFF, 200px 300px #FFF, 600px 500px #FFF,
+    100px 600px #FFF, 1200px 800px #FFF, 1400px 1400px #FFF, 900px 900px #FFF,
+    400px 1300px #FFF, 700px 1700px #FFF, 200px 200px #FFF, 1800px 1400px #FFF;
+    animation: animStar 15s linear infinite;
+}
+#stars3:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: inherit;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+
+
+
+
+
+
+
+  
+  @import url('https://fonts.googleapis.com/css?family=Muli');
+  
+  html, body {
+   
+    
+    font-family: 'Muli', Helvetica, sans-serif;
+  }
+  
+  .container {
+    position: absolute;
+    width: 17rem;
+    height: 10rem;
+    
+  }
+  
+  .fixed-animation {
+    position: fixed; /* Закрепляем в верхнем левом углу */
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Поверх всех элементов */
+  }
+  
+  .text {
+    color: #fff;
+    font-size: 6rem;
+    font-weight: 900;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    animation: text 2050ms ease-in infinite;
+    transform: translateZ(0);
+    font-size: 300%;
+    
+  }
+  .text-w {
+    
+    left: 0rem;
+    transform: translate3d(0, -4rem, 0);
+    animation: text-w 2050ms ease-in infinite;
+  }
+  .text-i {
+    left: 4.0rem;
+    animation-delay: 150ms;
+  }
+  .text-n {
+    left: 6.6rem;
+    animation-delay: 350ms;
+  }
+  .text-R {
+    left: 9.9rem;
+    animation-delay: 550ms;
+  }
+  
+  .coast {
+    position: absolute;
+    left: 0rem;
+    bottom: 0.6rem;
+    width: 6.2rem;
+    height: 2.2rem;
+    display: inline-block;
+    animation: coast 4100ms linear infinite;
+    transform: translateZ(0);
+  }
+  
+  .wave-rel-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 3,7rem;
+    perspective-origin: 50% 50%;
+  }
+  
+  .wave {
+    position: absolute;
+    width: 6.2rem;
+    height: 2.2rem;
+    border-radius: 2rem;
+    background: radial-gradient(ellipse at center,#97cc5a 0%, #97cc5a 73%, #97cc5a 100%);
+    display: inline-block;
+    animation: wave 4100ms linear infinite;
+    will-change: width;
+    transform: translateZ(0) scale(0);
+  }
+  
+  .delay {
+    animation-delay: 2050ms;
+  }
+  
+  @keyframes text {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    30% {
+      transform: translate3d(0, 0, 0);
+    }
+    45% {
+      transform: translate3d(0, -4rem, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes text-w {
+    0% {
+      transform: translate3d(0, -4rem, 0);
+    }
+    38% {
+      transform: translate3d(0, -5rem, 0);
+    }
+    69% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, -4rem, 0);
+    }
+  }
+  
+  @keyframes coast {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    23% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(16rem, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: scale(0);
+      width: 2.2rem;
+    }
+    10% {
+      transform: scale(1);
+    }
+    23% {
+      width: 2.2rem;
+    }
+    32% {
+      width: 3.7rem;
+    }
+    42% {
+      width: 3.7rem;
+      transform: rotateY(0deg) scale(1, 1);
+    }
+    51% {
+      transform: rotateY(90deg) scale(0.6, 0.2);
+    }
+    52% {
+      transform: rotateY(90deg) scale(0);
+    }
+    100% {
+      transform: rotateY(90deg) scale(0);
+    }
+  }
+
+
+  .menu {
+    position: absolute;
+    top: 0;
+    left: -200px; /* Скрываем меню за пределами видимой области */
+    width: 250px;
+
+    border-radius: 5px;
+    padding: 20px;
+    transition: left 0.3s ease, background-color 0.3s ease; /* Добавляем плавный переход для цвета */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    display: inline-block; /* Чтобы transform применялся корректно */
+    transition: transform 0.3s ease; /* Плавная анимация наклона */
+}
+
+.menu li a:hover {
+    transform: rotate(1deg)  scale(1.3);
+    text-decoration: underline;
+}
+
+/* Показываем меню при наведении на родительский контейнер */
+.fixed-animation:hover .menu {
+    left: 0; /* Выдвигаем меню */
+    background-color: rgba(0, 0, 0, 0.76); /* Меняем цвет на синий при выдвижении */
+}
+
+
+
+
+
+
+
+
+
+/* Стрелка (буквы W и R) для открытия меню */
+#menuArrow {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* Стрелка будет левее */
+    transform: translateY(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    animation: shakeArrow 10s ease-in-out infinite; /* Ускоренная анимация */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.65;
+}
+
+/* Верхняя часть стрелки - буква W */
+#menuArrow .top {
+    transform: rotate(0deg); /* Начальное положение W */
+    color: #97cc5a; /* Цвет текста стрелки */
+}
+
+/* Нижняя часть стрелки - буква R */
+#menuArrow .bottom {
+    transform: rotate(-90deg); /* Начальное положение R */
+    color: #ffffff; /* Цвет текста стрелки */
+}
+
+/* Анимация вращения W и R */
+@keyframes shakeArrow {
+    0% {
+        transform: rotate(45deg); /* W вверх */
+    }
+    25% {
+        transform: rotate(90deg); /* R вниз */
+    }
+    50% {
+        transform: rotate(45deg); /* W вверх */
+    }
+    75% {
+        transform: rotate(0deg); /* R вниз */
+    }
+    100% {
+        transform: rotate(45deg); /* W вверх */
+    }
+}
+
+/* Контейнер для верхней и нижней части стрелки */
+#menuArrow span {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+/* Меню, скрытое по умолчанию */
+#sideMenu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  height: 100%;
+  width: 300px;
+  background: linear-gradient(135deg, #333, #555);
+  color: white;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 20px 0 0 20px;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Логотип */
+#sideMenu .logo {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px; /* Отступ от верхней части */
+}
+
+#sideMenu .logo .white {
+  color: white;
+}
+
+#sideMenu .logo .green {
+  color: #97cc5a;
+}
+
+/* Поисковая строка */
+#sideMenu .search-bar {
+  text-align: center;
+  margin-bottom: 40px; /* Отступ от логотипа */
+}
+
+#sideMenu .search-bar input {
+  width: 90%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  color: #333;
+  background: #f4f4f4;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+#sideMenu .search-bar input:focus {
+  background: #e0e0e0;
+}
+
+/* Список меню */
+#sideMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sideMenu ul li {
+  font-size: 1.5rem;
+  padding: 15px 0; /* Увеличенный отступ между словами */
+  cursor: pointer;
+  position: relative; /* Для подчёркивания слева */
+  transition: all 0.3s ease;
+  padding-left: 20px; /* Слова дальше от левой стороны */
+}
+
+#sideMenu ul li:hover {
+  color: #97cc5a;
+  transform: translateX(-10px) scale(1.1);
+}
+
+/* Линия слева при наведении */
+#sideMenu ul li:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 100%;
+  background: #97cc5a;
+  border-radius: 10px;
+}
+
+/* Зелёная линия-разделитель */
+.separator {
+  height: 2px;
+  background: #97cc5a;
+  margin: 40px 0; /* Увеличенные отступы сверху и снизу */
+  border-radius: 1px;
+}
+
+/* Нижняя опция */
+.bottom-option {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+  margin-bottom: 20px; /* Опция 6 немного выше */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bottom-option:hover {
+  color: #97cc5a;
+  transform: translateX(-10px) scale(1.1);
+}
+/* Подчеркивание слева для опции 6 */
+.bottom-option:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 100%;
+  background: #97cc5a;
+  border-radius: 10px;
+}
+
+
+#sideMenu ul li:nth-child(5) {
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Эффекты при наведении */
+#sideMenu ul li:hover {
+  color: #97cc5a;
+  transform: translateX(-10px) scale(1.1);
+}
+
+/* Показать меню при наведении */
+#menuArrow:hover + #sideMenu,
+#sideMenu:hover {
+  right: 0;
+}
+
+
+
+/* Переключатель темы */
+.theme-toggle {
+  text-align: center;
+  padding: 15px 0;
+  margin: 20px 0; /* Отступ между 5-й и 6-й опцией */
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  color: #97cc5a;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+
+
+/* Светлая тема */
+body.light-theme {
+  background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+  color: rgb(63, 63, 63);
+}
+
+body.light-theme header h1 {
+  color: #000000;
+}
+.light-theme #predictionForm label {
+  
+  color:#000000;
+}
+
+body.light-theme h1:hover {
+  color: #000;
+}
+
+body.light-theme #formSection {
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+}
+
+body.light-theme #resultSection {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+body.light-theme #formSection button {
+  background: #888888;
+}
+
+body.light-theme #formSection button:hover {
+  background: #cccccc;
+}
+
+#menuArrow .bottom {
+  transform: rotate(-90deg);
+  color: #ffffff; /* Белый цвет */
+}
+
+
+
+#sideMenu .logo .white {
+  color: white; /* Белый текст */
+}
+
+
+/* Светлая тема */
+.light-theme #footersection {
+  background: linear-gradient(135deg, #ffffff, #eaeaea); /* Светлый градиент */
+  color: #000000; /* Темный текст */
+}
+
+.light-theme #menuArrow .bottom {
+  color: #4e4e4e; /* Черный цвет */
+}
+
+.light-theme #sideMenu {
+  background: #f0f0f0; /* Светло-серый фон */
+  color: #333; /* Темный текст */
+}
+
+.light-theme #sideMenu .logo .white {
+  color: #acacac; /* Темный текст */
+}
+body.light-theme p{
+  color:rgb(0, 0, 0)
+}
+
+/* Основной контейнер переключателя */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Ползунок */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333; /* Темный фон */
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Кружок ползунка */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Текстовые метки */
+.label-dark,
+.label-light {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none; /* Отключаем взаимодействие */
+}
+
+.label-dark {
+  left: 10px; /* Расположение слева */
+  color: white;
+}
+
+.label-light {
+  right: 10px; /* Расположение справа */
+  color: black;
+  opacity: 0; /* Изначально скрыта */
+  transition: opacity 0.4s;
+}
+
+/* Изменение состояния переключателя */
+input:checked + .slider {
+  background-color: #ccc; /* Светлый фон */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Перемещение кружка */
+}
+
+input:checked + .slider .label-dark {
+  opacity: 0; /* Скрываем текст "Тёмный" */
+}
+
+input:checked + .slider .label-light {
+  opacity: 1; /* Показываем текст "Светлый" */
+}
+
+
+

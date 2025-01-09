@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Match Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='css/icon.ico') }}">
+    
+</head>
+<body>
+    <!-- Верхняя часть -->
+    <div id="stadium"></div>
+    <div id="ball"></div>
+    <!-- Звезды -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div class="container fixed-animation">
+        <div class="coast">
+          <div class="wave-rel-wrap">
+            <div class="wave"></div>
+          </div>
+        </div>
+        <div class="coast delay">
+          <div class="wave-rel-wrap">
+            <div class="wave delay"></div>
+          </div>
+        </div>
+        <div class="text text-w">w</div>
+        <div class="text text-i">i</div>
+        <div class="text text-n">n</div>
+        <div class="text text-R">R</div>
+
+           <!-- Меню слева -->
+        <div class="menu">
+            <ul>
+                <li><a href="#main">&#9750; Мой Аккаунт</a></li>
+                <li><a href="#about">&#9102; Поддержка</a></li>
+                <li><a href="#formSection">&#128366; История</a></li>
+                <li><a href="#footersection">&#128365; Что нового</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Стрелка для меню -->
+    <div id="menuArrow">
+        <div id="menuArrow">
+            <span class="top">R</span>
+            <span class="bottom">w</span>
+        </div>
+    </div>
+
+    <!-- Меню справа -->
+    
+    <div id="sideMenu">
+        <div class="logo">
+            <span class="white">WIN</span><span class="green">R</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск..." />
+        </div>
+        <ul>
+            <li>&#x27A4; Главная</li>
+            <li>&#x2606; Таблица лидеров</li>
+            <li>&#x2696; Результаты</li>
+            <div class="separator"></div>
+            <li>&#9881; Настройки</li>
+        </ul>
+        <div class="theme-toggle">
+            <label class="switch">
+                <input type="checkbox" id="themeButton">
+                <span class="slider">
+                  <span class="label-dark">Светлый</span>
+                  <span class="label-light">Темный</span>
+                </span>
+              </label>
+        </div>
+
+
+       
+
+       
+        
+        <div class="bottom-option">
+            <span>	&#9993; Пожелания</span>
+        </div>
+    </div>
+        
+    
+    
+    
+
+    <header style="text-align: center; padding: 20px;">
+        
+        <h1>Football Match Predictor</h1>
+        <p>Получайте точные прогнозы на предстоящие футбольные матчи</p>
+    </header>
+
+    <section id="formSection">
+        <h2>Введите информацию о матче</h2>
+        <form id="predictionForm">
+            <label for="homeTeam">Хозяева поля:</label>
+            <select id="homeTeam" name="Home Team">
+                <option value="Arsenal">Arsenal</option>
+                <option value="Aston Villa">Aston Villa</option>
+                <option value="Bournemouth">Bournemouth</option>
+                <option value="Brentford">Brentford</option>
+                <option value="Brighton">Brighton</option>
+                <option value="Burnley">Burnley</option>
+                <option value="Chelsea">Chelsea</option>
+                <option value="Crystal Palace">Crystal Palace</option>
+                <option value="Everton">Everton</option>
+                <option value="Fulham">Fulham</option>
+                <option value="Liverpool">Liverpool</option>
+                <option value="Luton">Luton</option>
+                <option value="Manchester City">Manchester City</option>
+                <option value="Manchester United">Manchester United</option>
+                <option value="Newcastle">Newcastle</option>
+                <option value="Nottingham Forest">Nottingham Forest</option>
+                <option value="Sheffield Utd">Sheffield Utd</option>
+                <option value="Tottenham">Tottenham</option>
+                <option value="West Ham">West Ham</option>
+                <option value="Wolves">Wolves</option>
+            </select>
+    
+            <label for="awayTeam">Противоположная команда:</label>
+            <select id="awayTeam" name="Away Team">
+                <option value="Arsenal">Arsenal</option>
+                <option value="Aston Villa">Aston Villa</option>
+                <option value="Bournemouth">Bournemouth</option>
+                <option value="Brentford">Brentford</option>
+                <option value="Brighton">Brighton</option>
+                <option value="Burnley">Burnley</option>
+                <option value="Chelsea">Chelsea</option>
+                <option value="Crystal Palace">Crystal Palace</option>
+                <option value="Everton">Everton</option>
+                <option value="Fulham">Fulham</option>
+                <option value="Liverpool">Liverpool</option>
+                <option value="Luton">Luton</option>
+                <option value="Manchester City">Manchester City</option>
+                <option value="Manchester United">Manchester United</option>
+                <option value="Newcastle">Newcastle</option>
+                <option value="Nottingham Forest">Nottingham Forest</option>
+                <option value="Sheffield Utd">Sheffield Utd</option>
+                <option value="Tottenham">Tottenham</option>
+                <option value="West Ham">West Ham</option>
+                <option value="Wolves">Wolves</option>
+            </select>
+    
+            <label for="league">Лига:</label>
+            <select id="league" name="League">
+                <option value="Premier League">Premier League</option>
+            </select>
+    
+            <label for="homePosition">Положение хозяев поля:</label>
+            <input type="number" id="homePosition" name="Home Position" placeholder="Выберите позицию домашней команды">
+    
+            <label for="awayPosition">Положение команды на выезде:</label>
+            <input type="number" id="awayPosition" name="Away Position" placeholder="Выберите позицию выездной команды">
+    
+            <label for="homeAge">Средний возраст хозяев поля:</label>
+            <input type="number" step="0.01" id="homeAge" name="Home Average Age" placeholder="Введите средний возраст домашней команды">
+    
+            <label for="awayAge">Средний возраст выездной команды:</label>
+            <input type="number" step="0.01" id="awayAge" name="Away Average Age" placeholder="Укажите средний возраст выездной команды">
+    
+            <label for="matchDate">Дата Матча:</label>
+            <input type="date" id="matchDate" name="Match Date">
+    
+            <button type="button" onclick="submitForm()">
+                Предсказать
+            </button>
+        </form>
+    </section>
+
+    <section id="resultSection">
+        <h2 id="result">Предсказание появится здесь</h2>
+    </section>
+    
+    <footer id="footersection">
+        <p>&copy; Предсказатель футбольного матча 2025 года. Все права защищены.</p>
+        <p>Связаться с нами: <a href="https://vk.com/dima73618" style="color: #00BFFF;">support@matchpredictor.com</a></p>
+    </footer>
+   
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
